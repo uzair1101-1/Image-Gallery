@@ -26,6 +26,13 @@ lightbox.
 -   CSS3
 -   JavaScript
 -   Unsplash images for sample photos
+-   ## Project Structure
+
+PixelGallery/
+├── index.html
+├── style.css
+├── script.js
+└── README.md
 
 ## How to Run
 
