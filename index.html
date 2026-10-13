@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explore the World Through Images</title>
+  <meta name="description" content="A curated collection of stunning photos of cars, animals and cities." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="nav">
+    <a class="logo" href="#home" aria-label="PixelGallery home">
+      
+      Pixel<span>Gallery</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Main">
+      <a href="#home" class="active">Home</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#about">About</a>
+      <button class="theme-btn" id="themeToggle" aria-label="Toggle dark / light theme">
+     
+    </nav>
+  </header>
+  <section class="hero" id="home">
+    <div class="hero-text">
+      
+      <h1>Explore the World <span>Through Images</span></h1>
+      <p class="hero-sub">
+             <label class="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input type="search" id="search" placeholder="Search by name or category..." autocomplete="off" />
+      </label>
+    </div>
+  </section>
+  <main class="container" id="gallery">
+    <div class="toolbar">
+      <div class="chips" id="categoryBar" role="tablist" aria-label="Categories"></div>
+
+      <button class="upload-btn" id="openUpload">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"/></svg>
+        Upload Image
+      </button>
+    </div>
+
+    <p class="count" id="count" aria-live="polite"></p>
+
+    <section class="grid" id="grid" aria-label="Photo gallery"></section>
+    <p class="empty" id="empty" hidden>No images found. Try another search or category.</p>
+  </main>
+  <section class="about" id="about">
+    <h2>About <span>PixelGallery</span></h2>
+    <p>PixelGallery is a responsive image gallery built with HTML, CSS and JavaScript. 
+      Users can browse photos of cars, animals and cities, search by name or category, 
+      and open any image in a large viewer with next and previous buttons. 
+      They can also save favorites, upload their own images and apply image filters.
+       The layout works smoothly on mobile, tablet and desktop screens.</p>
+  </section>
+
+  <footer class="footer">Image Gallery Using HTML, CSS & JavaScript
+    <br>
+          Uzair Khan</footer>
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <div class="lb-modal">
+      <div class="lb-head">
+        <span class="lb-count"><b id="lbCounter">1 / 1</b></span>
+        <button class="lb-icon" id="lbClose" aria-label="Close viewer">&times;</button>
+      </div>
+
+      <div class="lb-stage">
+        <img id="lbImg" src="" alt="" />
+        <button class="lb-arrow lb-prev" id="lbPrev" aria-label="Previous image">&#10094;</button>
+        <button class="lb-arrow lb-next" id="lbNext" aria-label="Next image">&#10095;</button>
+      </div>
+
+      <div class="lb-details">
+        <div class="lb-row">
+          <h3 id="lbTitle"></h3>
+          <span class="badge-solid" id="lbCat"></span>
+        </div>
+        <p class="lb-desc" id="lbDesc"></p>
+
+        <div class="lb-actions">
+          <button class="btn" id="lbFav" aria-pressed="false"></button>
+          <button class="btn danger" id="lbDel" hidden>Delete</button>
+
+          <div class="lb-filters" id="imgFilters" aria-label="Image filters">
+            <button class="mini active" data-filter="none">Original</button>
+            <button class="mini" data-filter="grayscale(1)">B&amp;W</button>
+            <button class="mini" data-filter="sepia(.9)">Sepia</button>
+            <button class="mini" data-filter="saturate(2)">Vivid</button>
+            <button class="mini" data-filter="blur(3px)">Blur</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="lightbox" id="uploadModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Upload image">
+    <form class="lb-modal upload-form" id="uploadForm">
+      <div class="lb-head">
+        <h3>Upload your image</h3>
+        <button type="button" class="lb-icon" id="upClose" aria-label="Close">&times;</button>
+      </div>
+
+      <label class="drop" for="upFile">
+        <img id="upPreview" alt="Preview" hidden />
+        <span id="upHint">Click to choose an image (JPG, PNG, WEBP)</span>
+      </label>
+      <input type="file" id="upFile" accept="image/*" hidden />
+
+      <label class="field">Title
+        <input type="text" id="upTitle" maxlength="40" placeholder="e.g. Red sports car" required />
+      </label>
+
+      <label class="field">Category
+        <select id="upCategory" required>
+          <option value="cars">Cars</option>
+          <option value="animals">Animals</option>
+          <option value="cities">Cities</option>
+        </select>
+      </label>
+
+      <label class="field">Description
+        <textarea id="upDesc" rows="3" maxlength="160" placeholder="Short description (optional)"></textarea>
+      </label>
+
+      <button type="submit" class="btn primary full">Add to Gallery</button>
+    </form>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html> 
