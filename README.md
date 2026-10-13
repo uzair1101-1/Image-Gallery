@@ -28,13 +28,12 @@ lightbox.
 -   Unsplash images for sample photos
 ## Project Structure
 
-``` text
+
 PixelGallery/
 ├── index.html
 ├── style.css
 ├── script.js
 └── README.md
-
 ## How to Run
 
 1.  Download or clone this repository.
